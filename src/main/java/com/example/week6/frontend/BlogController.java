@@ -32,8 +32,8 @@ public class BlogController {
     @PostMapping("/login")
     public String addToCart(@RequestParam String email, @RequestParam String password) {
         Optional<User> user = userRepository.findByEmail(email);
-//        if (user.isPresent() && BCrypt.verifyer().verify(password.toCharArray(), user.get().getPasswordHash()).verified ) {
-        if (user.isPresent() && password.equals(user.get().getPasswordHash()) ) {
+        if (user.isPresent() && BCrypt.verifyer().verify(password.toCharArray(), user.get().getPasswordHash()).verified ) {
+//        if (user.isPresent() && password.equals(user.get().getPasswordHash()) ) {
             return "redirect:/blog/getBlog/" + user.get().getId();
         } else {
             return "index";

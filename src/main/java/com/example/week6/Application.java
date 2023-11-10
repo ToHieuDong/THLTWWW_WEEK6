@@ -37,13 +37,13 @@ public class Application {
         return args -> {
 			Random random = new Random();
 			String pa = "Dong123";
-//			String enpass = BCrypt.withDefaults().hashToString(17, pa.toCharArray());
+			String enpass = BCrypt.withDefaults().hashToString(17, pa.toCharArray());
 			User us1 = new User("To", "Dong", "Hieu", "hieudong.dongthanh.01", "0859505384",
-					pa, LocalDate.of(2023,10,21),
+					enpass, LocalDate.of(2023,10,21),
 					LocalDate.of(2002,11,02), "THD", "QWERTY");
 
 			User us2 = new User("To", "Gnoodd", "", "hieudong.dongthanh.02", "0848525414",
-					pa, LocalDate.of(2023,10,21),
+					enpass, LocalDate.of(2023,10,21),
 					LocalDate.of(2002,03,28), "DTHN", "QWERTYN");
 
 			userRepository.save(us1);
